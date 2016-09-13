@@ -1,27 +1,28 @@
-package com.lzokks04.myutilbox.view;
+package com.lzokks04.myutilbox.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.aspsine.swipetoloadlayout.SwipeRefreshTrigger;
+import com.aspsine.swipetoloadlayout.SwipeLoadMoreTrigger;
 import com.aspsine.swipetoloadlayout.SwipeTrigger;
 
 /**
  * Created by Liu on 2016/9/13.
  */
-public class RefreshHeaderView extends TextView implements SwipeRefreshTrigger, SwipeTrigger {
-    public RefreshHeaderView(Context context) {
+public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeLoadMoreTrigger {
+
+    public LoadMoreFooterView(Context context) {
         super(context);
     }
 
-    public RefreshHeaderView(Context context, AttributeSet attrs) {
+    public LoadMoreFooterView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
-    public void onRefresh() {
-        setText("正在拼命刷新数据...");
+    public void onLoadMore() {
+        setText("正在拼命加载数据...");
     }
 
     @Override
@@ -32,10 +33,10 @@ public class RefreshHeaderView extends TextView implements SwipeRefreshTrigger, 
     @Override
     public void onMove(int i, boolean b, boolean b1) {
         if (!b) {
-            if (i >= getHeight()) {
-                setText("松开刷新...");
+            if (i <= -getHeight()) {
+                setText("松开载入...");
             } else {
-                setText("下拉刷新文章...");
+                setText("上拉载入更多...");
             }
         } else {
 
@@ -49,7 +50,7 @@ public class RefreshHeaderView extends TextView implements SwipeRefreshTrigger, 
 
     @Override
     public void onComplete() {
-        setText("刷新成功");
+        setText("载入成功...");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.lzokks04.myutilbox.utils;
+package com.lzokks04.myutilbox.utils.netutils;
 
 import com.lzokks04.myutilbox.bean.WeixinInfoBean;
 

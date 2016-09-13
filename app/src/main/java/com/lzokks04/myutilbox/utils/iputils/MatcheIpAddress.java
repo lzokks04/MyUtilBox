@@ -1,4 +1,4 @@
-package com.lzokks04.myutilbox.utils;
+package com.lzokks04.myutilbox.utils.iputils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package com.lzokks04.myutilbox.utils;
+package com.lzokks04.myutilbox.utils.recyclerview_itemdecoration;
 
 import android.content.Context;
 import android.content.res.TypedArray;

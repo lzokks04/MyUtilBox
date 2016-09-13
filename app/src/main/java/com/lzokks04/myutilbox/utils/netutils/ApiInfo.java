@@ -1,4 +1,4 @@
-package com.lzokks04.myutilbox.utils;
+package com.lzokks04.myutilbox.utils.netutils;
 
 /**
  * Created by Liu on 2016/9/12.

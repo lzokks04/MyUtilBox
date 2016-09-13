@@ -1,4 +1,4 @@
-package com.lzokks04.myutilbox.utils;
+package com.lzokks04.myutilbox.utils.iputils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

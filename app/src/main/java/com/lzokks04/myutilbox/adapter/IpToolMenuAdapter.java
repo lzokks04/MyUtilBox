@@ -34,7 +34,7 @@ public class IpToolMenuAdapter extends RecyclerView.Adapter<IpToolMenuAdapter.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_cardview, parent, false));
+        return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_ipmenu, parent, false));
     }
 
     @Override

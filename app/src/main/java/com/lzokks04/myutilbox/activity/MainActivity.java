@@ -18,7 +18,7 @@ import com.lzokks04.myutilbox.activity.iptool.IpMenuActivity;
 import com.lzokks04.myutilbox.adapter.MenuItemAdapter;
 import com.lzokks04.myutilbox.bean.AppInfo;
 import com.lzokks04.myutilbox.utils.AppManager;
-import com.lzokks04.myutilbox.utils.DividerGridItemDecoration;
+import com.lzokks04.myutilbox.utils.recyclerview_itemdecoration.DividerGridItemDecoration;
 import com.lzokks04.myutilbox.utils.MemoryUtil;
 import com.lzokks04.myutilbox.utils.Utils;
 
@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerview;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.tv_memorysize)
-    TextView tvMemorysize;
 
     private MenuItemAdapter adapter;
     private long exitTime;
@@ -80,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
                         Utils.startIntent(MainActivity.this, AppInfoActivity.class);
                         break;
                     case 1:
-                        Utils.showToast(getApplicationContext(), "手机加速");
+                        Utils.showToast(getApplicationContext(), "垃圾清理");
                         break;
                     case 2:
-                        Utils.showToast(getApplicationContext(), "手机信息");
+                        Utils.startIntent(MainActivity.this, HardInfoActivity.class);
                         break;
                     case 3:
                         Utils.startIntent(MainActivity.this, IpMenuActivity.class);
@@ -110,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
         long totalMemory = MemoryUtil.getTotalMem();
         long usedMemory = totalMemory - availableMemory;
         int percent = (int) (usedMemory / (float) totalMemory * 100);
-        tvMemorysize.setText(usedMemory / 1024 / 1024 + "M/" + totalMemory / 1024 / 1024 + "M");
         tvMemory.setText("内存占用" + percent + "%");
     }
 

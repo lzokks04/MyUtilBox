@@ -14,8 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lzokks04.myutilbox.R;
-import com.lzokks04.myutilbox.utils.IpUtils;
-import com.lzokks04.myutilbox.utils.MatcheIpAddress;
+import com.lzokks04.myutilbox.utils.iputils.IpUtils;
+import com.lzokks04.myutilbox.utils.iputils.MatcheIpAddress;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

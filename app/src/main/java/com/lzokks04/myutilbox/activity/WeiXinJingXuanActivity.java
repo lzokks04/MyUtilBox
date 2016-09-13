@@ -17,8 +17,8 @@ import com.lzokks04.myutilbox.R;
 import com.lzokks04.myutilbox.adapter.WeiXinAdapter;
 import com.lzokks04.myutilbox.bean.WeiXinDetailBean;
 import com.lzokks04.myutilbox.bean.WeixinInfoBean;
-import com.lzokks04.myutilbox.utils.ApiInfo;
-import com.lzokks04.myutilbox.utils.NetWorkService;
+import com.lzokks04.myutilbox.utils.netutils.ApiInfo;
+import com.lzokks04.myutilbox.utils.netutils.NetWorkService;
 
 import java.util.ArrayList;
 import java.util.List;
