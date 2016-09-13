@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerview;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.tv_memorysize)
+    TextView tvMemorysize;
 
     private MenuItemAdapter adapter;
     private long exitTime;
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         Utils.startIntent(MainActivity.this, IpMenuActivity.class);
                         break;
                     case 4:
-                        Utils.showToast(getApplicationContext(), "微信精选");
+                        Utils.startIntent(MainActivity.this, WeixinJingXuanActivity.class);
                         break;
                     case 5:
                         Utils.showToast(getApplicationContext(), "其它");
@@ -108,13 +110,14 @@ public class MainActivity extends AppCompatActivity {
         long totalMemory = MemoryUtil.getTotalMem();
         long usedMemory = totalMemory - availableMemory;
         int percent = (int) (usedMemory / (float) totalMemory * 100);
+        tvMemorysize.setText(usedMemory / 1024 / 1024 + "M/" + totalMemory / 1024 / 1024 + "M");
         tvMemory.setText("内存占用" + percent + "%");
     }
 
     private void killUserProcess() {
-        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (AppInfo appinfo : killAppList) {
-            activityManager.killBackgroundProcesses(appinfo.getPackageName());
+            am.killBackgroundProcesses(appinfo.getPackageName());
         }
         Utils.showToast(this, "成功");
     }

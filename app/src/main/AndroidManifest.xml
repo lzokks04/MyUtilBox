@@ -29,6 +29,9 @@
 
         <activity android:name=".activity.AppInfoActivity"/>
 
+        <activity android:name=".activity.WeixinJingXuanActivity"/>
+
+        <activity android:name=".activity.WebViewActivity"/>
     </application>
 
 </manifest>

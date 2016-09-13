@@ -63,7 +63,8 @@ public class IpMenuActivity extends AppCompatActivity {
                         Utils.showToast(getApplicationContext(), "功能暂未实现");
                         break;
                     case 2:
-                        Utils.startIntent(IpMenuActivity.this, IpScanActivity.class);
+                        Utils.showToast(getApplicationContext(), "功能暂未实现");
+//                        Utils.startIntent(IpMenuActivity.this, IpScanActivity.class);
                         break;
                     case 3:
                         Utils.startIntent(IpMenuActivity.this, PingActivity.class);

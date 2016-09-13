@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.lzokks04.myutilbox.R;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.MyViewHolder> {
 
     private Context mContext;
-    private String[] mTitle = {"软件管理", "手机加速", "手机信息", "IP工具", "微信精选", "其它"};
+    private String[] mTitle = {"软件管理", "垃圾清理", "手机信息", "IP工具", "微信精选", "其它"};
     private int[] mImage = {R.drawable.ic_pie_chart_black_36dp,
             R.drawable.ic_file_upload_black_36dp,
             R.drawable.ic_smartphone_black_36dp,
@@ -45,7 +45,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.MyView
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         holder.tvName.setText(mTitle[position]);
-        Picasso.with(mContext).load(mImage[position]).into(holder.ivIcon);
+        Glide.with(mContext).load(mImage[position]).into(holder.ivIcon);
         if (listener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,6 +73,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.MyView
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+
     }
 
     public interface onItemClickListener {
