@@ -2,6 +2,8 @@ package com.lzokks04.myutilbox.activity;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lzokks04.myutilbox.R;
+import com.lzokks04.myutilbox.activity.another.AnotherMenuActivity;
 import com.lzokks04.myutilbox.activity.iptool.IpMenuActivity;
 import com.lzokks04.myutilbox.adapter.MenuItemAdapter;
 import com.lzokks04.myutilbox.bean.AppInfo;
 import com.lzokks04.myutilbox.utils.AppManager;
-import com.lzokks04.myutilbox.utils.recyclerview_itemdecoration.DividerGridItemDecoration;
 import com.lzokks04.myutilbox.utils.MemoryUtil;
 import com.lzokks04.myutilbox.utils.Utils;
+import com.lzokks04.myutilbox.utils.recyclerview_itemdecoration.DividerGridItemDecoration;
 
 import java.util.List;
 
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         Utils.startIntent(MainActivity.this, WeixinJingXuanActivity.class);
                         break;
                     case 5:
-                        Utils.showToast(getApplicationContext(), "其它");
+                        Utils.startIntent(MainActivity.this, AnotherMenuActivity.class);
                         break;
                 }
             }
@@ -112,11 +115,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void killUserProcess() {
+        PackageManager pm = getPackageManager();
+        List<ApplicationInfo> list = pm.getInstalledApplications(0);
         ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        for (AppInfo appinfo : killAppList) {
-            am.killBackgroundProcesses(appinfo.getPackageName());
+        String myPackage = getApplicationContext().getPackageName();
+        int count = 0;
+        for (ApplicationInfo packageInfo : list) {
+            if ((packageInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1)
+                continue;
+            if (packageInfo.packageName.equals(myPackage))
+                continue;
+            am.killBackgroundProcesses(packageInfo.packageName);
+            count++;
         }
-        Utils.showToast(this, "成功");
+        Utils.showToast(this, "结束了" + count + "个进程");
+        getMemeryInfo();
     }
 
     @Override

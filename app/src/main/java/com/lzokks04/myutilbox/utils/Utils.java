@@ -2,7 +2,6 @@ package com.lzokks04.myutilbox.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
@@ -48,16 +47,6 @@ public class Utils {
             }
         }
         return true;
-    }
-
-    public static boolean checkCameraHardware(Context context) {
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            // this device has a camera
-            return true;
-        } else {
-            // no camera on this device
-            return false;
-        }
     }
 
     public static String getCpuName() {

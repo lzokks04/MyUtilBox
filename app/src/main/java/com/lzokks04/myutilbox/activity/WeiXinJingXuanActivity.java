@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
 import com.aspsine.swipetoloadlayout.OnRefreshListener;
@@ -108,7 +109,7 @@ public class WeixinJingXuanActivity extends AppCompatActivity implements OnRefre
                 int totalItemCount = llm.getItemCount();
                 if (lastVisibleItem >= totalItemCount - 4 && dy > 0) {
                     state = STATE_LOAD_MORE;
-                }else {
+                } else {
                     state = STATE_REFRESH;
                 }
             }
@@ -141,6 +142,7 @@ public class WeixinJingXuanActivity extends AppCompatActivity implements OnRefre
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
+                        Toast.makeText(WeixinJingXuanActivity.this, "网络错误,请重试", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

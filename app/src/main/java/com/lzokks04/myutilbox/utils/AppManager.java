@@ -46,7 +46,7 @@ public class AppManager {
                 appInfo.setIcon(app.loadIcon(pm));
                 appInfo.setName(app.loadLabel(pm).toString());
                 Debug.MemoryInfo memoryInfo[] = am.getProcessMemoryInfo(new int[]{pid});
-                appInfo.setSize(memoryInfo[0].dalvikPrivateDirty);
+                appInfo.setSize(memoryInfo[0].dalvikPrivateDirty * 1024);
                 list.add(appInfo);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
@@ -107,7 +107,7 @@ public class AppManager {
         AppInfo appInfo = new AppInfo();
         appInfo.setPackageName(pi.packageName);
         try {
-            appInfo.setSize((int) getSize(context, pi.packageName));
+            appInfo.setSize(getSize(context, pi.packageName));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -118,6 +118,7 @@ public class AppManager {
 
     /**
      * 计算大小
+     *
      * @param context
      * @param packageName
      * @return

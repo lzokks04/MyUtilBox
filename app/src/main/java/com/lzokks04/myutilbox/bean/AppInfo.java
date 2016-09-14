@@ -10,13 +10,14 @@ public class AppInfo {
     private String packageName;//包名
     private Drawable icon;//图标
     private String name;//名字
-    private float size;//占用内存大小
 
-    public float getSize() {
+    private long size;//占用内存大小
+
+    public long getSize() {
         return size;
     }
 
-    public void setSize(float size) {
+    public void setSize(long size) {
         this.size = size;
     }
 

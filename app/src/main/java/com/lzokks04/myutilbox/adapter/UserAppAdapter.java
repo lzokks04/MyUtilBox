@@ -47,7 +47,7 @@ public class UserAppAdapter extends RecyclerView.Adapter<UserAppAdapter.MyViewHo
         holder.ivIcon.setImageDrawable(appInfoList.get(position).getIcon());
         holder.tvAppname.setText(appInfoList.get(position).getName());
         holder.tvPackname.setText(appInfoList.get(position).getPackageName());
-        holder.tvSize.setText("大小:" + Formatter.formatFileSize(context, (long) appInfoList.get(position).getSize()));
+        holder.tvSize.setText("大小:" + Formatter.formatFileSize(context,appInfoList.get(position).getSize()));
         if (listener != null) {
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
